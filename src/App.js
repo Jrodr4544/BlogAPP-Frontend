@@ -6,13 +6,17 @@ import {
 
 import logo from './logo.svg';
 import './App.css';
+
 import NavBar from './components/Navbar';
+import About from './components/About';
+
+import PostsContainer from './containers/postsContainer'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        
+      // <div className="App">
+      <div>  
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h3
@@ -21,10 +25,16 @@ class App extends Component {
           >
             BLOGGIN
           </h3>
-          
         </header>
         <Router>
-          {/* <NavBar /> */}
+          <div>
+            <NavBar />
+            <Route path='/posts' component={PostsContainer} />
+            <Route path='/about' component={About} />
+            <Route exact path="/" render={() => (
+              <div className="App"><h1>Welcome</h1><img className="App-logo" src={logo} alt='171x180' /></div>
+            )} />
+          </div>
         </Router>
       </div>
     );
