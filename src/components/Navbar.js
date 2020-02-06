@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Nav } from 'react-bootstrap'; 
+import { Nav } from 'react-bootstrap'; 
 import { NavLink } from 'react-router-dom';
 
 const NavBar = () => {
@@ -20,7 +20,9 @@ const NavBar = () => {
           </Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-3">Link</Nav.Link>
+          <Nav.Link eventKey="link-3">
+            <NavLink to="/new_post">New Post</NavLink>
+          </Nav.Link>
         </Nav.Item>
         <Nav.Item>
           <Nav.Link eventKey="link-4"> 
