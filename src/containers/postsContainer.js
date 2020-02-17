@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../actions/index'
 import Posts from '../components/Posts'
+import { Route, Switch } from 'react-router-dom';
+import PostShowContainer from './postShowContainer';
 
 class PostsContainer extends Component {
     constructor(props){
@@ -36,6 +38,12 @@ class PostsContainer extends Component {
                 {/* will need a component for postInput in order to create blogs */}
                 {/* will need a posts component to display the posts */}
                 POSTS PAGE CONTAINER
+                <Switch>
+                    <Route exact path={`${match.url}/:postId`} render={(match) => <PostShowContainer match={match} />} />
+                    <Route path={match.url} render={() => (
+                        <h3>Select a post from the list.</h3>
+                    )} />
+                </Switch>
                 <Posts posts={this.state.posts}/>
             </div>
         )
