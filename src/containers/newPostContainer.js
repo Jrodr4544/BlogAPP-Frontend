@@ -24,10 +24,17 @@ class NewPostContainer extends Component {
     
     handlePostSubmission = ( event ) => {
       event.preventDefault()
-debugger
+      debugger
       console.log("POST SUBMISSION")
       debugger
-      this.props.createPost(this.state.post)
+      this.props.createPost(this.state)
+      this.setState({
+        title: '',
+        author: '',
+        summary: '',
+        body: ''
+      })
+      debugger
     }
 
     render() {
