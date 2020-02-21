@@ -30,13 +30,11 @@ class PostsContainer extends Component {
     render() {
         debugger
         console.log(this.props)
-        const {match} = this.props;
+        const {match, posts} = this.props;
 
         return (
             <div>
                 {/* Posts Page Container */}
-                {/* will need a component for postInput in order to create blogs */}
-                {/* will need a posts component to display the posts */}
                 POSTS PAGE CONTAINER
                 <Switch>
                     <Route exact path={`${match.url}/:postId`} render={(match) => <PostShowContainer match={match} />} />
@@ -44,19 +42,18 @@ class PostsContainer extends Component {
                         <h3>Select a post from the list.</h3>
                     )} />
                 </Switch>
-                <Posts posts={this.state.posts}/>
+                <Posts posts={posts}/>
             </div>
         )
     }
 
-
 }
 
 const mapStateToProps = state => {
-    // debugger
+    debugger
     return {
         posts: state.posts.posts 
     }
 }
-// Include with the action function below after it is imported.
+
 export default connect(mapStateToProps, {fetchPosts})(PostsContainer);
