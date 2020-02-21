@@ -3,13 +3,9 @@ export const fetchPosts = () => {
 debugger
   return async dispatch => {
     function onSuccess(posts) {
-    //   let comments = {};
 
-    //   assign comments to post unless they are nested.
-    //   debugger
       dispatch({ type: 'FETCH_POSTS', posts });
-    //   dispatch({ type: 'SET_COMMENTS', comments })
-    //   debugger 
+      
       return posts;
     }
 
